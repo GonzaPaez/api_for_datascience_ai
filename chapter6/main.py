@@ -1,7 +1,9 @@
-"""FastAPI program - Chapter 5"""
+"""FastAPI program - Chapter 6"""
 from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from datetime import date
+import os
 
 import crud, schemas
 from database import SessionLocal
@@ -29,6 +31,9 @@ app = FastAPI(
     title="Sports World Central (SWC) Fantasy Football API",
     version="0.1",
 )
+
+bulk_folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'bulk'))
+app.mount("/bulk", StaticFiles(directory=bulk_folder_path), name="bulk")
 
 # Dependency
 def get_db():
