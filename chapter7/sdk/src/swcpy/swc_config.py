@@ -25,17 +25,17 @@ class SWCConfig:
         Contains initialization values to overwrite defaults.
         
         Args:
-        swc_base_url (optional):
-            The base URL to use for all the API calls. Pass this in or set in
-            environment variable.
-        swc_backoff:
-            A boolean that determines if the SDK should retry the call using
-            backoff when errors occur.
-        swc_backoff_max_time:
-            The max number of seconds the SDK should keep trying an API call
-            before stopping.
-        sec_bulk_file_format:
-            If bulk files should be in csv or parquet format.
+            swc_base_url (optional):
+                The base URL to use for all the API calls. Pass this in or set in
+                environment variable.
+            swc_backoff:
+                A boolean that determines if the SDK should retry the call using
+                backoff when errors occur.
+            swc_backoff_max_time:
+                The max number of seconds the SDK should keep trying an API call
+                before stopping.
+            swc_bulk_file_format:
+                If bulk files should be in csv or parquet format.
         """
         self.swc_base_url = swc_base_url or os.getenv("SWC_API_BASE_URL")
         print(f"SWC_API_BASE_URL in SWCConfig init: {self.swc_base_url}")
