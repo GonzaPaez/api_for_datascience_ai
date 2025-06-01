@@ -40,7 +40,7 @@ class SWCConfig:
         self.swc_base_url = swc_base_url or os.getenv("SWC_API_BASE_URL")
         print(f"SWC_API_BASE_URL in SWCConfig init: {self.swc_base_url}")
         
-        if not self-swc_base_url:
+        if not self.swc_base_url:
             raise ValueError(
                 """BaseURL is required. Set SWC_API_BASE_URL environment 
                 variable.

@@ -26,8 +26,8 @@ class SWCClient:
     GET_COUNTS_ENDPOINT = " /v0/counts/"
     
     BULK_FILE_BASE_URL = (
-        ""
-        + ""
+        "https://raw.githubusercontent.com/GonzaPaez"
+        + "/api_for_datascience_ai/main/bulk/"
     )
     
     def __init__(self, input_config: config.SWCConfig):
@@ -147,10 +147,10 @@ class SWCClient:
         """Return a bulk file with player data"""
         logger.debug("Entered get bulk player file")
         
-        player_file_path=self.BULK_FILE_BASE_URL+self.BULK_FILE_NAMES["players"]
+        player_file_path= self.BULK_FILE_BASE_URL + self.BULK_FILE_NAMES["players"]
+        print(player_file_path)
         response = httpx.get(player_file_path, follow_redirects=True)
         
         if response.status_code == 200:
             logger.debug("File dowloaded successfully")
             return response.content
-        
